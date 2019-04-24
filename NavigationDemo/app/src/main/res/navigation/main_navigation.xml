@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+	app:startDestination="@id/destination_a">
+	<fragment
+		android:id="@+id/destination_a"
+		android:name="com.lutas.navigationdemo.AFragment"
+		android:label="AFragment"
+		tools:layout="@layout/a_fragment">
+		<action
+			android:id="@+id/action_a_to_b"
+			app:destination="@id/destination_b"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right"/>
+	</fragment>
+	<fragment
+		android:id="@+id/destination_b"
+		android:name="com.lutas.navigationdemo.BFragment"
+		android:label="BFragment"
+		tools:layout="@layout/b_fragment">
+		<action android:id="@+id/action_b_to_c"
+				app:destination="@id/destination_c"/>
+	</fragment>
+	<fragment
+		android:id="@+id/destination_c"
+	  	android:name="com.lutas.navigationdemo.CFragment"
+	  	android:label="CFragment"
+		tools:layout="@layout/c_fragment">
+		<action android:id="@+id/action_c_to_a"
+				app:destination="@id/destination_a"
+				app:popUpTo="@id/destination_a"
+				app:popUpToInclusive="true"/>
+	</fragment>
+</navigation>
